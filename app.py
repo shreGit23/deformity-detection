@@ -9,17 +9,7 @@ import time
 st.title("Test Streamlit App")
 uploaded_file = st.file_uploader("Please upload an image", type=["jpg", "png", "jpeg"])
 
-# st.sidebar.title("Model Selection")
-
-# all_models = (
-#     'Kidney Stone Detection',
-#     'Fracture Detection',
-#     'Pneumonia Classification'
-#     )
-
-# model_option = st.sidebar.selectbox('Select an analysis type', all_models)
-
-if uploaded_file is not None:
+if uploaded_file is not None: # Checks if image is uploaded or not
 
     image = Image.open(io.BytesIO(uploaded_file.read()))
     st.image(image, caption="Uploaded Image", use_column_width=True)
@@ -29,7 +19,7 @@ if uploaded_file is not None:
         if 'Detection' in var_4:
             prediction, version, model, model_used = var_1, var_2, var_3, var_4
 
-            if version == 'v5':
+            if version == 'v5': # for YOLO v5 model
                 exp_dir = 'runs/detect/exp'
                 if os.path.exists(exp_dir) and os.listdir(exp_dir):
                     image_name = os.listdir(exp_dir)
@@ -47,7 +37,7 @@ if uploaded_file is not None:
                     st.write("No prediction results found for YOLOv5.")
                     print("No prediction results found for YOLOv5.")
 
-            elif version == 'v8':
+            elif version == 'v8':  # for YOLO v8 model
 
                 for info in prediction:
                     predict_dir = info.save_dir
@@ -64,7 +54,7 @@ if uploaded_file is not None:
                     st.write("No prediction results found for YOLOv8.")
                     print("No prediction results found for YOLOv8.")
 
-        elif 'Classification' in var_4:
+        elif 'Classification' in var_4: # for classification models
             class_name, confidence_score, model, model_option = var_1, var_2, var_3, var_4
 
             st.write(f'**Class Name:** {class_name}')
