@@ -14,7 +14,7 @@ Create a Python environment and install the necessary libraries for running Stre
 
 Example:
 
-$`\textcolor{green}{\text{pip install -r requirements.txt}}`$ 
+$`\textcolor{skyblue}{\text{pip install -r requirements.txt}}`$ 
 
 ## Technologies Used
 
