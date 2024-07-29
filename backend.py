@@ -1,17 +1,16 @@
+# IMPORT REQUIRED LIBRARIES
 import torch
 import tensorflow as tf
 import torchvision.transforms as transforms
 import numpy as np
 from PIL import Image, ImageOps
 import os
-from ultralytics import YOLO  # type: ignore
+from ultralytics import YOLO 
 import shutil
 import tempfile
 import streamlit as st
 
-
-
-def get_model_path(model):
+def get_model_path(model): # add your models file path (.pt) for yolo and (.h5) for classification models.
     model = model.strip()
     model_paths = {
         'Kidney Stone Detection': [r'models\Kidney_Stone_Model (81.3% mAP)\weights\best.pt', 'yolov5'],
@@ -24,7 +23,7 @@ def get_model_path(model):
 
 
 
-def load_model(selected_model):
+def load_model(selected_model):  # function to load required model.
     model_data = get_model_path(selected_model)
 
     model_path, model_type = model_data
