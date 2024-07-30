@@ -1,0 +1,6 @@
+Brain Tumor Detection
+Fracture Detection
+Kidney Stone Detection
+Pneumonia Classification
+Non-Medical Image
+Alzheimer Classification
